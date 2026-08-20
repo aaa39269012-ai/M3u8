@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M3U8 to MP4 Converter</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>M3U8 → MP4 Converter</h1>
+    <p class="subtitle">Browser-based • No upload to server</p>
+
+    <input type="text" id="urlInput" placeholder="Paste m3u8 link here..." />
+    
+    <div class="actions">
+      <button id="parseBtn">Parse Playlist</button>
+    </div>
+
+    <div id="qualitySection" class="hidden">
+      <label>Select Quality:</label>
+      <select id="qualitySelect"></select>
+      <button id="startBtn">Start Conversion</button>
+    </div>
+
+    <div id="progressSection" class="hidden">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="statusText">Ready</p>
+    </div>
+
+    <div id="resultSection" class="hidden">
+      <video id="preview" controls></video>
+      <a id="downloadBtn" class="download-btn" download="video.mp4">Download MP4</a>
+    </div>
+
+    <p id="errorText" class="error"></p>
+  </div>
+
+  <!-- FFmpeg.wasm from CDN -->
+  <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+  <script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/util.js"></script>
+
+  <script src="js/playlist.js"></script>
+  <script src="js/downloader.js"></script>
+  <script src="js/converter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
